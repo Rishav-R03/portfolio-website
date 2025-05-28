@@ -1,3 +1,5 @@
+import Contact from '../models/contactForm.model.js'
+import nodemailer from 'nodemailer'
 export const contactFormContoller = async (req, res) => {
     try {
         const { name, email, subject, rating } = req.body;
@@ -24,7 +26,7 @@ export const contactFormContoller = async (req, res) => {
         if (!subject || !subject.trim()) {
             return res.status(400).json({
                 success: false,
-                message: 'subject is required'
+                message: 'Message is required'
             });
         }
 
