@@ -1,17 +1,23 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-// Load environment variables
 dotenv.config();
 
 const conn = async () => {
     try {
-        // Check if URI exists
         if (!process.env.MONGO_URI) {
             throw new Error('MONGODB_URI is not defined in environment variables');
         }
 
-        const connection = await mongoose.connect(process.env.MONGO_URI);
+        const connection = await mongoose.connect(process.env.MONGO_URI, {
+            // SSL/TLS options to fix the error
+            // ssl: false,  // Disable SSL for local MongoDB
+            // OR if you need SSL, use these instead:
+            // ssl: true,
+            // sslValidate: false,
+            // tlsInsecure: true
+        });
+
         console.log('Database connected successfully');
         return connection;
     } catch (error) {

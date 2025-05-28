@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import contactSubmit from './Routes/contactme.route.js'
 
 //connecting database
 conn()
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 })
 
+app.use('/api/contact',contactSubmit)
 // server running
 app.listen(PORT, () => {
     console.log(`server running at http://localhost:${PORT}`)  // Use actual PORT variable
