@@ -26,6 +26,9 @@ app.use(express.json())
 conn()
 
 
+app.get('/',(req,res)=>{
+    res.status(200).sendFile(path.join(__dirname,'public','index.html'));
+})
 
 // server running
 app.listen(PORT, () => {
