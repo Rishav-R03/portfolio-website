@@ -5,6 +5,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import contactSubmit from './Routes/contactme.route.js'
+import morgan from 'morgan'
 
 //connecting database
 conn()
@@ -20,12 +21,13 @@ const __dirname = dirname(__filename)
 app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(express.static('files'))
 app.use(express.json())
+app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 })
 
-app.use('/api/contact',contactSubmit)
+app.use('/', contactSubmit)
 // server running
 app.listen(PORT, () => {
     console.log(`server running at http://localhost:${PORT}`)  // Use actual PORT variable

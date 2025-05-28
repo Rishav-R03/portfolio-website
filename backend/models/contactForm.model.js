@@ -8,9 +8,9 @@ const contactFormSchema = mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:true 
+        // Remove unique:true - same person might contact multiple times
     },
-    message:{
+    subject:{
         type:String,
         required:true
     },
@@ -18,6 +18,13 @@ const contactFormSchema = mongoose.Schema({
         type:Number,
         required:true
     }
+}, {
+    timestamps: true // Adds createdAt and updatedAt automatically
 });
 
-export const Contact = mongoose.model("Contact",userSchema);
+// Fix: Use contactFormSchema instead of userSchema
+// export const Contact = mongoose.model("Contact", contactFormSchema);
+
+// Or use default export (recommended)
+const Contact = mongoose.model("Contact", contactFormSchema);
+export default Contact;

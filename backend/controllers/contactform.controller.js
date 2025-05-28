@@ -1,14 +1,43 @@
-import nodemailer from 'nodemailer'
 export const contactFormContoller = async (req, res) => {
     try {
-        const { name, email, message, rating } = req.body;
-        // 1. save to mongodb
-        const newContact = new Contact({ name, email, message, rating });
-        await newContact.save();
-        res.status(200).json({
-            success: true,
-            message: 'Form sent successfully'
+        const { name, email, subject, rating } = req.body;
+
+        // Debug: Log what you're receiving
+        console.log('Received data:', req.body);
+        console.log('Name:', name, 'Email:', email, 'Subject:', subject);
+
+        // More specific validation with trimming
+        if (!name || !name.trim()) {
+            return res.status(400).json({
+                success: false,
+                message: 'Name is required'
+            });
+        }
+
+        if (!email || !email.trim()) {
+            return res.status(400).json({
+                success: false,
+                message: 'Email is required'
+            });
+        }
+
+        if (!subject || !subject.trim()) {
+            return res.status(400).json({
+                success: false,
+                message: 'subject is required'
+            });
+        }
+
+        // Rest of your code remains the same...
+        const newContact = new Contact({
+            name: name.trim(),
+            email: email.trim(),
+            subject: subject.trim(),
+            rating: rating ? parseInt(rating) : null
         });
+
+        await newContact.save();
+
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
@@ -16,32 +45,36 @@ export const contactFormContoller = async (req, res) => {
                 pass: process.env.EMAIL_PWD
             }
         });
-        // 2. setting up mail 
+
         const mailOptions = {
-            from: process.env.SEND_EMAIL, // sender's add
-            to: process.env.RECEIVE_EMAIL, // my email 
-            subject: `New Contact Form Submission: ${message || 'No Subject'}`,
+            from: process.env.SEND_EMAIL,
+            to: process.env.RECEIVE_EMAIL,
+            subject: `New Contact Form Submission: ${subject.trim()}`,
             html: `
-                <p>You have a new contact form submission from your portfolio:</p>
+                <h2>New Contact Form Submission</h2>
+                <p>You have a new contact form submission:</p>
                 <ul>
-                    <li><strong>Name:</strong> ${name}</li>
-                    <li><strong>Email:</strong> ${email}</li>
-                    <li><strong>Subject:</strong> ${subject || 'N/A'}</li>
-                    <li><strong>Message:</strong> ${message || 'N/A'}</li>
+                    <li><strong>Name:</strong> ${name.trim()}</li>
+                    <li><strong>Email:</strong> ${email.trim()}</li>
+                    <li><strong>Message:</strong> ${subject.trim()}</li>
+                    <li><strong>Rating:</strong> ${rating || 'N/A'}</li>
                 </ul>
             `
-        }
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error('Error sending email:', error);
-            } else {
-                console.log('Email sent:', info.response);
-            }
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log('Email sent successfully');
+
+        res.status(200).json({
+            success: true,
+            message: 'Contact form submitted successfully!'
         });
-        res.status(200).json({ message: 'Message sent successfully!' });
 
     } catch (err) {
         console.error('Error processing contact form:', err.message);
-        res.status(500).json({ message: 'Internal server error.' });
+        res.status(500).json({
+            success: false,
+            message: 'Internal server error.'
+        });
     }
 }

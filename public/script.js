@@ -1,18 +1,17 @@
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
-  e.preventDefault(); // <-- IMPORTANT: Uncomment this to prevent page reload
+  e.preventDefault();
 
   const formData = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
-    // Make sure this ID matches your HTML for the main message
-    message: document.getElementById('message').value,
-    // If you add a subject field back, add it here:
-    // subject: document.getElementById('subject').value,
+    subject: document.getElementById('subject').value, // This will now correctly get the textarea value
     rating: document.getElementById('rating').value
   };
 
+  console.log('Sending form data:', formData);
+
   try {
-    const response = await fetch('/api/contact', { // Ensure this matches your backend route
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,12 +19,14 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       body: JSON.stringify(formData)
     });
 
+    const responseData = await response.json();
+    console.log('Server response:', responseData);
+
     if (response.ok) {
       alert("Form submitted successfully!");
       document.getElementById('contact-form').reset();
     } else {
-      const errorData = await response.json();
-      alert('Failed to send message: ' + (errorData.message || 'Unknown error.'));
+      alert('Failed to send message: ' + (responseData.message || 'Unknown error.'));
     }
   } catch (error) {
     console.error('Error submitting form:', error);
