@@ -10,27 +10,21 @@ conn()
 //configuring .env file
 dotenv.config()
 
-// import mongoose from 'mongoose'
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;  // Add fallback port
 const app = express()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename)
 
-// middlewares 
-
-app.use(express.static('public'))
-app.use(express.static(path.join(__dirname, 'public')))
+// middlewares - serve static files from parent directory's public folder
+app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(express.static('files'))
 app.use(express.json())
-// importing the database connection
-conn()
 
-
-app.get('/',(req,res)=>{
-    res.status(200).sendFile(path.join(__dirname,'public','index.html'));
+app.get('/', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 })
 
 // server running
 app.listen(PORT, () => {
-    console.log(`server running at http://localhost:8000`)
+    console.log(`server running at http://localhost:${PORT}`)  // Use actual PORT variable
 });
