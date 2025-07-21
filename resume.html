@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishav Raj - Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #2c3e50;
+            letter-spacing: 2px;
+        }
+        .contact-info {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            font-size: 18px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .subsection {
+            margin: 15px 0;
+        }
+        .subsection h3 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+        .date-location {
+            float: right;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .project-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .github-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        .tech-stack {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .achievement {
+            margin: 8px 0;
+            padding-left: 0;
+        }
+        .achievement li {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .skills-category {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .skills-list {
+            color: #555;
+        }
+        .summary {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RISHAV RAJ</h1>
+        <div class="contact-info">+91 9315171439 • New Delhi, India</div>
+        <div class="contact-info">
+            <a href="mailto:rishav042025@gmail.com">rishav042025@gmail.com</a> | 
+            <a href="https://linkedin.com/in/rishavraj" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/rishavraj" target="_blank">GitHub Portfolio</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Summary</h2>
+        <div class="summary">
+            Results-driven Software Engineer with strong expertise in Python backend development and modern web technologies. Proven experience building scalable REST APIs, implementing AI-powered solutions, and optimizing system performance. Passionate about clean code architecture, automated testing, and collaborative development practices. Seeking to leverage technical skills and problem-solving abilities in a challenging backend development role.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <div class="education-item">
+            <div>
+                <strong>Bachelor of Computer Science</strong>, VIT Bhopal University<br>
+                <em>Relevant Coursework:</em> Data Structures & Algorithms, Database Systems, Software Engineering, Computer Networks, Operating Systems
+            </div>
+            <div class="date-location">
+                2022 - 2026<br>
+                <strong>8.41 CGPA</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skills-category">Programming Languages:</div>
+            <div class="skills-list">Python, JavaScript, SQL, Bash</div>
+            
+            <div class="skills-category">Backend Frameworks:</div>
+            <div class="skills-list">FastAPI, Django, Flask, RESTful API Design</div>
+            
+            <div class="skills-category">Cloud & DevOps:</div>
+            <div class="skills-list">AWS (EC2, S3, RDS), Docker, GitHub Actions, CI/CD Pipelines, Linux</div>
+            
+            <div class="skills-category">Databases:</div>
+            <div class="skills-list">PostgreSQL, Redis, MongoDB, Database Design & Optimization</div>
+            
+            <div class="skills-category">Tools & Testing:</div>
+            <div class="skills-list">Git, Pytest, Postman, Docker Compose, Nginx, System Design</div>
+            
+            <div class="skills-category">AI/ML Technologies:</div>
+            <div class="skills-list">LangChain, OpenAI API, Hugging Face, Vector Databases</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Projects</h2>
+        
+        <div class="subsection">
+            <div class="project-header">
+                <span class="project-title">AI-Powered Resume Analyzer & ATS Optimizer</span>
+                <span class="date-location">March 2025 – April 2025</span>
+            </div>
+            <div class="tech-stack">Tech Stack: FastAPI, PostgreSQL, Redis, Docker, OpenAI API, Pytest, AWS EC2</div>
+            <div class="github-link">🔗 <a href="#">GitHub Repository</a> | <a href="#">Live Demo</a></div>
+            <ul class="achievement">
+                <li>Engineered a <strong>high-performance REST API</strong> using FastAPI serving <strong>500+ concurrent users</strong> with 99.5% uptime</li>
+                <li>Implemented <strong>intelligent resume parsing</strong> achieving <strong>92% accuracy</strong> in extracting skills, experience, and education data</li>
+                <li>Built <strong>Redis caching layer</strong> reducing API response time by <strong>60%</strong> (from 2.3s to 0.9s average)</li>
+                <li>Designed <strong>PostgreSQL database schema</strong> with optimized indexing, handling <strong>10,000+ resume records</strong></li>
+                <li>Developed <strong>comprehensive test suite</strong> with 85+ unit and integration tests using Pytest</li>
+                <li>Deployed using <strong>Docker containers</strong> with automated CI/CD pipeline reducing deployment time by 70%</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <div class="project-header">
+                <span class="project-title">Intelligent Research Assistant with RAG Architecture</span>
+                <span class="date-location">May 2025 – June 2025</span>
+            </div>
+            <div class="tech-stack">Tech Stack: Python, LangChain, FastAPI, ChromaDB, Streamlit, Docker, OpenAI API</div>
+            <div class="github-link">🔗 <a href="#">GitHub Repository</a></div>
+            <ul class="achievement">
+                <li>Built <strong>scalable RAG (Retrieval-Augmented Generation)</strong> system processing <strong>1,000+ research documents</strong></li>
+                <li>Implemented <strong>vector database</strong> with ChromaDB enabling <strong>sub-second semantic search</strong> across large document corpus</li>
+                <li>Optimized <strong>LangChain pipeline</strong> achieving <strong>40% faster query processing</strong> through efficient chunking strategies</li>
+                <li>Created <strong>real-time web interface</strong> with WebSocket connections supporting concurrent user sessions</li>
+                <li>Integrated <strong>document preprocessing pipeline</strong> supporting multiple formats (PDF, DOCX, TXT) with 95% accuracy</li>
+                <li>Implemented <strong>response caching</strong> and <strong>rate limiting</strong> reducing API costs by 35%</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <div class="project-header">
+                <span class="project-title">High-Performance URL Shortener Service</span>
+                <span class="date-location">July 2025</span>
+            </div>
+            <div class="tech-stack">Tech Stack: FastAPI, PostgreSQL, Redis, Docker, Nginx, Analytics Dashboard</div>
+            <div class="github-link">🔗 <a href="#">GitHub Repository</a> | <a href="#">API Documentation</a></div>
+            <ul class="achievement">
+                <li>Developed <strong>production-ready URL shortening API</strong> handling <strong>1,000+ requests/minute</strong> with load balancing</li>
+                <li>Implemented <strong>custom short URL algorithm</strong> generating collision-free 6-character codes for 56+ billion URLs</li>
+                <li>Built <strong>Redis-based caching</strong> achieving <strong>99.2% cache hit rate</strong> and <strong>sub-100ms response times</strong></li>
+                <li>Designed <strong>analytics system</strong> tracking click metrics, geographic data, and referrer information in real-time</li>
+                <li>Created <strong>rate limiting middleware</strong> preventing abuse with IP-based throttling and API key management</li>
+                <li>Implemented <strong>database connection pooling</strong> and <strong>async operations</strong> improving throughput by 3x</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Additional Achievements</h2>
+        <ul class="achievement">
+            <li><strong>Open Source Contributions:</strong> Active contributor to Python open-source projects with 50+ GitHub stars across repositories</li>
+            <li><strong>Technical Writing:</strong> Published 15+ technical blogs on backend development best practices, reaching 2,000+ developers monthly</li>
+            <li><strong>Problem Solving:</strong> Solved 200+ coding problems on LeetCode and HackerRank, focusing on algorithms and system design</li>
+            <li><strong>Certifications:</strong> AWS Cloud Practitioner, FastAPI Expert Certification</li>
+            <li><strong>Leadership:</strong> Led technical workshops for 100+ students on modern Python development and API design principles</li>
+        </ul>
+    </div>
+
+</body>
+</html>
